@@ -44,16 +44,16 @@ class TextToSpeechChild extends EventEmitter {
     Object.keys(newOptions).forEach(key => {
       if (options[key] !== undefined) newOptions[key] = options[key];
     });
-    this.cache.set(user, newOptions);
+    this.cache.set(user.id, newOptions);
     this.emit('setOptions', user, newOptions);
   }
 
   async getOptions(user) {
     if (!user) return clone(this.config.default);
-    let options = this.cache.get(user);
+    let options = this.cache.get(user.id);
     if (!options) {
       options = await this.createOptions(user.discriminator);
-      this.cache.set(user, options);
+      this.cache.set(user.id, options);
     }
     return clone(options);
   }

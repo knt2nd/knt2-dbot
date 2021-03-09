@@ -66,9 +66,7 @@ module.exports = {
   beforeInitialize: async function() {
     const voiceStore = await this.$bot.store.get('voice') || {};
     Object.keys(voiceStore).forEach(id => {
-      const member = this.$bot.guild.member(id);
-      if (!member) return delete voiceStore[id];
-      this.$bot.tts.cache.set(member.user, voiceStore[id]);
+      this.$bot.tts.cache.set(id, voiceStore[id]);
     });
     this.$bot.tts.on('setOptions', (user, options) => {
       voiceStore[user.id] = options;
