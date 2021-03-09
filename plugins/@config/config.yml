@@ -1,0 +1,3 @@
+# Protected config path, not listed nor merged
+# Wild card available, e.g. plugin.*.i18n
+protected: []

@@ -1,0 +1,81 @@
+command:
+  remember:
+    description:
+      en: Add to TTS dictionary
+      ja: 読み上げ辞書に登録する
+      zh-CN: 添加到朗读字典
+      zh-TW: 添加到朗讀字典
+    example:
+      en: remember "TTS" as "Text-to-Speech"
+      ja: 「TTS」を「テキストトゥースピーチ」って覚えて
+      zh-CN: 记住 "TTS" 为 "Text-to-Speech"
+      zh-TW: 記住「TTS」為「Text-to-Speech」
+    pattern:
+      en:
+        - remember.*?"(.+?)".*?"(.+?)"
+      ja:
+        - '[「『"“”](.+?)[」』"“”].*?[「『"“”](.+?)[」』"“”].*?(覚|おぼ)え'
+      zh-CN:
+        - 记.*?[「『"“”](.+?)[」』"“”].*?[「『"“”](.+?)[」』"“”]
+      zh-TW:
+        - 記.*?[「『"“”](.+?)[」』"“”].*?[「『"“”](.+?)[」』"“”]
+  forget:
+    description:
+      en: Remove from TTS dictionary
+      ja: 読み上げ辞書から削除する
+      zh-CN: 从朗读字典中删除
+      zh-TW: 從朗讀字典中刪除
+    example:
+      en: forget "TTS"
+      ja: 「TTS」を忘れて
+      zh-CN: 忘记 "TTS"
+      zh-TW: 忘記「TTS」
+    pattern:
+      en:
+        - forget.*?"(.+?)"
+      ja:
+        - '[「『"“”](.+?)[」』"“”].*?(忘|わす)れ'
+      zh-CN:
+        - 忘.*?[「『"“”](.+?)[」』"“”]
+      zh-TW:
+        - 忘.*?[「『"“”](.+?)[」』"“”]
+  export:
+    description:
+      en: Export TTS dictionary
+      ja: 読み上げ辞書をエクスポート
+      zh-CN: 输出朗读字典
+      zh-TW: 輸出朗讀字典
+    example:
+      en: export dict
+      ja: 辞書をエクスポート
+      zh-CN: 输出字典
+      zh-TW: 輸出字典
+    pattern:
+      en:
+        - export.*dict
+      ja:
+        - 辞書.*エクスポート
+      zh-CN:
+        - 输出.*字典
+      zh-TW:
+        - 輸出.*字典
+  import:
+    description:
+      en: Import TTS dictionary
+      ja: 読み上げ辞書をインポート
+      zh-CN: 输入朗读字典
+      zh-TW: 輸入朗讀字典
+    example:
+      en: import dict (attach *.yml)
+      ja: 辞書をインポート (*.yml添付)
+      zh-CN: 输入字典 (添加*.yml)
+      zh-TW: 輸入字典 (添加*.yml)
+    pattern:
+      en:
+        - import.*dict
+      ja:
+        - 辞書.*インポート
+      zh-CN:
+        - 输入.*字典
+      zh-TW:
+        - 輸入.*字典

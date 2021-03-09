@@ -1,0 +1,9 @@
+export:
+  permission:
+    - ADMINISTRATOR
+import:
+  permission:
+    - ADMINISTRATOR
+reset:
+  permission:
+    - ADMINISTRATOR

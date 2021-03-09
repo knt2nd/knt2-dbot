@@ -1,0 +1,4 @@
+restart:
+  permission: [] # means nobody, you must override from env.yml
+halt:
+  permission: []

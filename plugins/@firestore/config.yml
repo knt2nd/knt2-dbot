@@ -1,0 +1,13 @@
+# You have to create your Firebase project and service account
+# cf. https://firebase.google.com/docs/admin/setup#set-up-project-and-service-account
+# Tips: Service account is compatible with Google Cloud TTS
+
+# Service account credential path
+credential: credential.json
+
+# Firebase collection name
+collection: knt2-dbot
+
+# Save interval(ms)
+# 0: immediate
+interval: 600000

@@ -1,0 +1,61 @@
+command:
+  export:
+    description:
+      en: Export bot config
+      ja: Bot設定をエクスポート
+      zh-CN: 输出Bot设置
+      zh-TW: 輸出Bot設置
+    example:
+      en: export config
+      ja: 設定をエクスポート
+      zh-CN: 输出设置
+      zh-TW: 輸出設置
+    pattern:
+      en:
+        - export.*config
+      ja:
+        - 設定.*エクスポート
+      zh-CN:
+        - 输出.*设置
+      zh-TW:
+        - 輸出.*設置
+  import:
+    description:
+      en: Import bot config
+      ja: Bot設定をインポート
+      zh-CN: 输入Bot设置
+      zh-TW: 輸入Bot設置
+    example:
+      en: import config (attach *.yml)
+      ja: 設定をインポート (*.yml添付)
+      zh-CN: 输入设置 (添加*.yml)
+      zh-TW: 輸入設置 (添加*.yml)
+    pattern:
+      en:
+        - import.*config
+      ja:
+        - 設定.*インポート
+      zh-CN:
+        - 输入.*设置
+      zh-TW:
+        - 輸入.*設置
+  reset:
+    description:
+      en: Reset bot config
+      ja: Bot設定をリセット
+      zh-CN: 重置Bot设置
+      zh-TW: 重置Bot設置
+    example:
+      en: reset config
+      ja: 設定をリセット
+      zh-CN: 重置设置
+      zh-TW: 重置設置
+    pattern:
+      en:
+        - reset.*config
+      ja:
+        - 設定.*リセット
+      zh-CN:
+        - 重置.*设置
+      zh-TW:
+        - 重置.*設置

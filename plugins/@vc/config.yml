@@ -1,0 +1,20 @@
+# Resume voice channel connection after restart/halt
+resume: true
+
+# Auto join
+follow: true
+
+stream:
+  # Stream announcement
+  announce: true
+
+  # Other voice channel stream announcement
+  other: true
+
+join:
+
+  # Join announcement
+  announce: true
+
+  # Announcement suspend time(ms) after leave
+  suspend: 300000

@@ -1,0 +1,11 @@
+# Hidden commands, e.g. system.restart
+hidden: []
+
+# If false, always default lang
+multilingual: true
+
+# Show enabled plugins
+plugin: true
+
+# Introduce message when bot invited
+introduce: true

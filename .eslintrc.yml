@@ -1,0 +1,38 @@
+extends:
+  "eslint:recommended"
+env:
+  node: true
+  es2020: true
+rules:
+  eqeqeq: error
+  semi: error
+  space-before-blocks: error
+  no-trailing-spaces: error
+  keyword-spacing:
+    - error
+    - after: true
+  linebreak-style:
+    - error
+    - unix
+  prefer-const: error
+  no-unused-vars:
+    - error
+    - args: none
+  quotes:
+    - error
+    - single
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
+  comma-spacing:
+    - error
+    - after: true
+  comma-dangle:
+    - error
+    - always-multiline
+  no-irregular-whitespace:
+    - error
+    - skipRegExps: true
+      skipTemplates: true
+      skipComments: true

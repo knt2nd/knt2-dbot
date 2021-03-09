@@ -1,0 +1,41 @@
+command:
+  restart:
+    description:
+      en: Restart Discord client
+      ja: Discordクライアントを再起動する
+      zh-CN: 重新启动Discord客户端
+      zh-TW: 重新啟動Discord客戶端
+    example:
+      en: restart client
+      ja: クライアント再起動
+      zh-CN: 重启客户端
+      zh-TW: 重新啟動客戶端
+    pattern:
+      en:
+        - ^restart client$
+      ja:
+        - ^クライアント再起動$
+      zh-CN:
+        - ^重启客户端$
+      zh-TW:
+        - ^重新啟動客戶端$
+  halt:
+    description:
+      en: Halt program completely
+      ja: プログラムを完全に終了させる
+      zh-CN: 完全停止程序
+      zh-TW: 完全停止程序
+    example:
+      en: halt program
+      ja: バルス！
+      zh-CN: 关机程序
+      zh-TW: 關機程序
+    pattern:
+      en:
+        - ^halt program$
+      ja:
+        - ^バルス！$
+      zh-CN:
+        - ^关机程序$
+      zh-TW:
+        - ^關機程序$

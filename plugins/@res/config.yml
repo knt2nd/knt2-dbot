@@ -1,0 +1,61 @@
+# Enable regular expression
+# If false, search pattern will be just String (but case-insensitive)
+regexp: true
+
+# Bot speaks its reply
+speak: true
+
+# Suspend time(ms)
+suspend: 60000
+
+# Wait time(ms)
+wait:
+
+  # Before reaction
+  reaction:
+    min: 1000
+    max: 3000
+
+  # Before reply
+  reply:
+    min: 1000
+    max: 3000
+
+  # While typing
+  typing:
+    min: 1000
+    max: 3000
+
+  # Extend typing time by message length
+  char:
+    min: 50
+    max: 150
+
+# Reaction behaviors
+behavior:
+
+  # Search pattern
+  - pattern: kanata
+
+    # Regular expression flags, no need to set in most of cases
+    # flag: ism
+
+    # Probability: 0-100
+    chance: 50
+
+    # Emoji reactions, picked randomly
+    # Tips: Guild emojis available
+    reaction:
+      - 😀
+      - 🤔
+      - - 😇 # multiple emojis available
+        - ❤️
+        - 👍
+
+    # Message replies, picked randomly
+    # ${id} = Message author id
+    # ${name} = Message author name
+    # Mention: <@__USER_ID__> <@&__ROLE_ID__> <#__CHANNEL_ID__>
+    reply:
+      - '<@${id}> 👋'
+      - '${name}~ 🤗'

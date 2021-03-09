@@ -1,0 +1,4 @@
+# Plugin config
+# Transforms to this.$config
+# To be overridden by env.yml
+stop: ⏹️

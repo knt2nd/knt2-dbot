@@ -1,0 +1,64 @@
+command:
+  join:
+    description:
+      en: Join your voice channel
+      ja: 現在のボイスチャンネルに呼ぶ
+      zh-CN: 呼叫您所在的语音频道
+      zh-TW: 呼叫您所在的語音頻道
+    example:
+      en: join
+      ja: こっちきて
+      zh-CN: 加入
+      zh-TW: 加入
+    pattern:
+      en: 
+        - join
+      ja:
+        - こっち[き来]
+      zh-CN:
+        - 加入
+      zh-TW: 
+        - 加入
+  leave:
+    description:
+      en: Leave your voice channel
+      ja: 現在のボイスチャンネルから抜けさせる
+      zh-CN: 退出您所在的语音频道
+      zh-TW: 退出您所在的語音頻道
+    example:
+      en: leave
+      ja: あっちいって
+      zh-CN: 离开
+      zh-TW: 離開
+    pattern:
+      en: 
+        - leave
+      ja:
+        - あっち[い行]
+      zh-CN:
+        - 离开
+      zh-TW:
+        - 離開
+message:
+  stream:
+    en:
+      - Attention please, ${name} just started streaming
+    ja: 
+      - アテンションプリーズ。${name}さんが配信を始めたよ
+    zh-CN: 
+      - 请注意，${name}开始流式传输了
+    zh-TW: 
+      - 請注意，${name}開始流式傳輸了
+  join:
+    en:
+      - Hello, ${name}
+      - Welcome, ${name}
+    ja:
+      - ${name}さん、こんにちは
+      - ${name}さん、いらっしゃい
+    zh-CN: 
+      - ${name}，您好
+      - 欢迎，${name}
+    zh-TW: 
+      - ${name}，您好
+      - 歡迎，${name}

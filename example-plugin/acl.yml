@@ -1,0 +1,11 @@
+# Access control list for each command
+play:
+  # Guild permission
+  # Default: ['SEND_MESSAGES']
+  # cf. https://discord.js.org/#/docs/main/stable/class/Permissions?scrollTo=s-FLAGS
+  permission:
+    - SPEAK
+  # User IDs
+  # Default: []
+  user:
+    - '000000000000000000'

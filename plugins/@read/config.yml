@@ -1,0 +1,46 @@
+# Strip patterns
+strip:
+  - pattern: ^[;/!?=].*
+    flag: s
+  - pattern: '```.*?```'
+    flag: sg
+  - pattern: ^(;|#|//).*?$
+    flag: mg
+  - pattern: '[`*]'
+    flag: g
+
+# Replace patterns
+replace:
+  - pattern: https?://[\w/:%#$&?()~.=+-]+
+    # flag: ig # no need to set in most of cases
+    to: URL    # replacement
+
+# Speech text format
+format:
+
+  # First time speech
+  first: ${name}, ${message}
+
+  # Other than first time
+  later: ${message}
+
+  # Reset time(ms)
+  reset: 3600000
+
+# Speech text omit
+omit:
+
+  # Text length
+  length: 200
+
+  # Replacement text when omitted
+  text: ''
+
+# Speech skip
+skip:
+
+  # Text length
+  length: 30
+
+  # Skip button emoji
+  button: ⏭

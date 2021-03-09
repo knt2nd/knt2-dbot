@@ -1,0 +1,32 @@
+command:
+  show:
+    description:
+      en: Show help
+      ja: ヘルプを表示する
+      zh-CN: 显示帮助
+      zh-TW: 顯示幫助
+    example:
+      en: help
+      ja: ヘルプ
+      zh-CN: 帮助
+      zh-TW: 幫助
+    pattern:
+      en:
+        - help
+      ja:
+        - '[ヘへ][ルる][プぷ]'
+      zh-CN:
+        - 帮助
+      zh-TW:
+        - 幫助
+message:
+  title:
+    en: ${name} Help
+    ja: ${name} ヘルプ
+    zh-CN: ${name} 帮助
+    zh-TW: ${name} 幫助
+  description:
+    en: I accept following commands
+    ja: 以下のコマンドが使えます
+    zh-CN: 您可以使用以下命令
+    zh-TW: 您可以使用以下命令

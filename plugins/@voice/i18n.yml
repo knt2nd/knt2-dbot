@@ -1,0 +1,52 @@
+command:
+  change:
+    description:
+      en: Change your TTS config
+      ja: あなたの読み上げ設定を変更
+      zh-CN: 改变您的朗读设置
+      zh-TW: 改變您的朗讀設置
+    example:
+      en: change my voice
+      ja: 声を変更
+      zh-CN: 改变我的声音
+      zh-TW: 改變我的聲音
+    pattern:
+      en:
+        - change.*voice|voice.*change
+      ja:
+        - 変.*声|声.*変
+      zh-CN:
+        - 变.*声|声.*变
+      zh-TW:
+        - 變.*聲|聲.*變
+message:
+  title:
+    en: ${name}'s TTS settings
+    ja: ${name}さんの読み上げ設定
+    zh-CN: ${name}的朗读设置
+    zh-TW: ${name}的朗讀設置
+  lang:
+    en: Lang
+    ja: 言語
+    zh-CN: 语言
+    zh-TW: 語言
+  voice:
+    en: Voice
+    ja: 声質
+    zh-CN: 声音
+    zh-TW: 聲音
+  pitch:
+    en: Pitch
+    ja: 高さ
+    zh-CN: 音高
+    zh-TW: 音高
+  speed:
+    en: Speed
+    ja: 速さ
+    zh-CN: 速度
+    zh-TW: 速度
+  step:
+    en: '${step} step mode (click [5] to switch)'
+    ja: '${step}単位で増減 ([5]クリックで切り替え)'
+    zh-CN: '${step}步模式 (点击 [5] 切换)'
+    zh-TW: '${step}步模式 (點擊 [5] 切換)'

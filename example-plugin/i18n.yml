@@ -1,0 +1,42 @@
+# Internationalization
+# To be overridden by env.yml
+
+# Command settings
+command:
+  play:
+    description:
+      en: Play music
+      ja: 音楽を再生
+    example:
+      en: play [URL]
+      ja: '[URL]を再生'
+    pattern:
+      en:
+        -
+          pattern: (play|stream).*(https?://[\w/:%#$&?()~.=+-]+)
+          flag: i # regular expression flags
+          index:  # specify indexes to make ctx.options
+            - 2
+      ja:
+        - (https?://[\w/:%#$&?()~.=+-]+).*(再生|流し|ながし)
+
+# Transforms to this.$i18n
+#  - this.$i18n.get(path) // default lang
+#  - this.$i18n.get(path, lang) 
+#  - this.$i18n.get(path, options) // default lang
+#  - this.$i18n.get(path, options, lang) 
+message:
+  start:
+    # Replace options 
+    en: ${name} requested! [queue=${queue}]
+    ja: ${name}さんのリクエストです。 [残り曲数=${queue}]
+  end:
+    # Random list
+    en:
+      - That was good.
+      - Next?
+      - Any requests?
+    ja:
+      - いい曲ですね。
+      - 次行ってみよう。
+      - もうリクエストはありませんか？
