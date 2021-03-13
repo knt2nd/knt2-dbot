@@ -40,6 +40,10 @@ class Bot extends EventEmitter {
         break;
     }
     this.vc.initialize();
+    this.vc.on('debug', this.logger.debug);
+    this.vc.on('warn', this.logger.warn);
+    this.vc.on('error', this.logger.error);
+    this.vc.on('failed', this.logger.error);
     this.logger.info(`Bot initialized ${this.guild.id} "${this.guild.name}"`);
     this.logger.debug(`Bot config ${this.guild.id}`, this.config);
     this.emit('initialize');

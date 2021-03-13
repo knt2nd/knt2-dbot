@@ -2,9 +2,8 @@ const EventEmitter = require('events');
 const fastq = require('fastq');
 
 class VoiceChannel extends EventEmitter {
-  constructor(logger) {
+  constructor() {
     super();
-    this.logger = logger;
     this.channel = null;
     this.connection = null;
     this.dispatcher = null;
@@ -23,6 +22,10 @@ class VoiceChannel extends EventEmitter {
       const dispatcher = this.dispatcher = this.connection.play(audio.resource, audio.options);
       let timeout = null;
       if (audio.timeout > 0) timeout = setTimeout(() => dispatcher.end(), audio.timeout);
+      dispatcher.on('error', (...args) => {
+        dispatcher.end();
+        this.emit('error', ...args);
+      });
       dispatcher.on('start', () => {
         this.playing = audio;
         audio.emit('start', this.channel, this.connection, dispatcher);
@@ -52,10 +55,6 @@ class VoiceChannel extends EventEmitter {
       this.channel = channel;
       this.connecting = false;
       this.emit('connect', channel, connection);
-      if (this.logger.isDebugging()) connection.on('debug', this.logger.debug);
-      connection.on('warn', this.logger.warn);
-      connection.on('error', this.logger.error);
-      connection.on('failed', this.logger.error);
       connection.on('disconnect', () => {
         this.emit('disconnect', channel);
         this.channel = null;
@@ -65,6 +64,9 @@ class VoiceChannel extends EventEmitter {
           this.dispatcher.end();
           this.dispatcher = null;
         }
+      });
+      ['debug', 'warn', 'error', 'failed'].forEach(name => {
+        connection.on(name, (...args) => this.emit(name, ...args));
       });
     } catch (e) {
       this.connecting = false;

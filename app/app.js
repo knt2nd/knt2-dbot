@@ -75,7 +75,7 @@ class App extends EventEmitter {
   async start() {
     if (this.running) return;
     const client = new Discord.Client(this.config.discord.client || { restTimeOffset: 100 });
-    if (this.logger.isDebugging()) client.on('debug', this.logger.debug);
+    client.on('debug', this.logger.debug);
     client.on('warn', this.logger.warn);
     client.on('error', this.logger.error);
     let shardReadyCount = 0; // short time network down, then shardResume, but long time, shardReady again
