@@ -13,7 +13,7 @@ class Bot extends EventEmitter {
     this.tts = tts;
     this.logger = logger;
     this.cmdPatterns = [];
-    this.vc = new VoiceChannel(logger);
+    this.vc = new VoiceChannel();
     this.isReadable = () => false;
   }
 
