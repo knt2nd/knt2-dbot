@@ -23,14 +23,14 @@ class VoiceChannel extends EventEmitter {
       }
       (async () => {
         try {
-          if (this.connection.sockets.ws.ws.readyState !== WebSocket.OPEN) {
+          if (!this.connection.sockets.ws.ws || this.connection.sockets.ws.ws.readyState !== WebSocket.OPEN) {
             const channel = this.channel;
             this.leave();
             await utils.wait(3000);
             const res = await this.join(channel);
             this.emit('warn', `WebSocket recovered ${channel.id} ${res}`);
             await utils.wait(3000);
-            if (this.connection.sockets.ws.ws.readyState !== WebSocket.OPEN) {
+            if (!this.connection.sockets.ws.ws || this.connection.sockets.ws.ws.readyState !== WebSocket.OPEN) {
               throw new Error(`WebSocket failed to recover ${channel.id}`);
             }
           }
@@ -76,7 +76,9 @@ class VoiceChannel extends EventEmitter {
       this.channel = channel;
       this.connecting = false;
       this.emit('connect', channel, connection);
+      const timer = setInterval(() => connection.sockets.ws.attempts = 0, 600000);
       connection.on('disconnect', () => {
+        clearInterval(timer);
         this.emit('disconnect', channel);
         this.channel = null;
         this.connection = null;
