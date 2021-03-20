@@ -1,5 +1,7 @@
+const WebSocket = require('ws');
 const EventEmitter = require('events');
 const fastq = require('fastq');
+const utils = require('./utils');
 
 class VoiceChannel extends EventEmitter {
   constructor() {
@@ -19,24 +21,43 @@ class VoiceChannel extends EventEmitter {
         done(new Error('Not playable'), audio);
         return;
       }
-      const dispatcher = this.dispatcher = this.connection.play(audio.resource, audio.options);
-      let timeout = null;
-      if (audio.timeout > 0) timeout = setTimeout(() => dispatcher.end(), audio.timeout);
-      dispatcher.on('error', (...args) => {
-        dispatcher.end();
-        this.emit('error', ...args);
-      });
-      dispatcher.on('start', () => {
-        this.playing = audio;
-        audio.emit('start', this.channel, this.connection, dispatcher);
-      });
-      dispatcher.on('finish', () => {
-        if (timeout) clearTimeout(timeout);
-        this.playing = null;
-        this.dispatcher = null;
-        audio.emit('end', this.channel, this.connection);
-        done(null, audio);
-      });
+      (async () => {
+        try {
+          if (!this.connection.sockets.ws.ws || this.connection.sockets.ws.ws.readyState !== WebSocket.OPEN) {
+            const channel = this.channel;
+            this.leave();
+            await utils.wait(3000);
+            const res = await this.join(channel);
+            this.emit('warn', `WebSocket recovered ${channel.id} ${res}`);
+            await utils.wait(3000);
+            if (!this.connection.sockets.ws.ws || this.connection.sockets.ws.ws.readyState !== WebSocket.OPEN) {
+              throw new Error(`WebSocket failed to recover ${channel.id}`);
+            }
+          }
+          const dispatcher = this.dispatcher = this.connection.play(audio.resource, audio.options);
+          let timeout = null;
+          if (audio.timeout > 0) timeout = setTimeout(() => dispatcher.end(), audio.timeout);
+          dispatcher.on('error', (...args) => {
+            dispatcher.end();
+            this.emit('error', ...args);
+          });
+          dispatcher.on('start', () => {
+            this.playing = audio;
+            audio.emit('start', this.channel, this.connection, dispatcher);
+          });
+          dispatcher.on('finish', () => {
+            if (timeout) clearTimeout(timeout);
+            this.playing = null;
+            this.dispatcher = null;
+            audio.emit('end', this.channel, this.connection);
+            done(null, audio);
+          });
+        } catch (e) {
+          this.leave();
+          this.emit('error', e);
+          done(e, audio);
+        }
+      })();
     }, 1);
     this.queue.drain = () => this.playing = null;
   }
@@ -55,7 +76,9 @@ class VoiceChannel extends EventEmitter {
       this.channel = channel;
       this.connecting = false;
       this.emit('connect', channel, connection);
+      const timer = setInterval(() => connection.sockets.ws.attempts = 0, 600000);
       connection.on('disconnect', () => {
+        clearInterval(timer);
         this.emit('disconnect', channel);
         this.channel = null;
         this.connection = null;
@@ -90,8 +113,8 @@ class VoiceChannel extends EventEmitter {
 
   play(audio, done) {
     if (!this.isPlayable()) return false;
-    this.queue.push(audio, done);
     this.emit('queue', audio, this.channel, this.connection);
+    this.queue.push(audio, done);
     return true;
   }
 
