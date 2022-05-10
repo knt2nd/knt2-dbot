@@ -46,7 +46,7 @@ Extensible multi-language Discord voice bot
 
 ## Prepare Google Cloud TTS
 
-Follow [the official document instructions](https://cloud.google.com/text-to-speech/docs/quickstart-client-libraries#before-you-begin). You don't have to set the environment though. All you need to do is create a JSON file. Then place the file as `credential.json` in this project.
+Follow [the official document instructions](https://cloud.google.com/text-to-speech/docs/before-you-begin). You don't have to set the environment though. All you need to do is create a JSON file. Then place the file as `credential.json` in this project.
 
 Note: Google Cloud TTS is not free but *almost* free. You don't have to worry about payment when your bot is private. cf. [Pricing](https://cloud.google.com/text-to-speech/pricing)
 
