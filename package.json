@@ -1,6 +1,6 @@
 {
   "name": "knt2-dbot",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Extensible multi-language Discord voice bot",
   "author": "Kanata",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "discord.js": "^12.5.1",
     "fastq": "^1.11.0",
     "ffmpeg-static": "^4.2.7",
-    "firebase-admin": "^9.5.0",
+    "firebase-admin": "^10.2.0",
     "got": "^11.8.2",
     "js-yaml": "^4.0.0",
     "twemoji-parser": "^12.1.3"
