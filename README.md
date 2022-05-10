@@ -2,6 +2,8 @@
 
 Extensible multi-language Discord voice bot
 
+[Demo Movie (Developer's Tweet)](https://twitter.com/knt2nd/status/1369255050414092292)
+
 ## Features
 
 - Google Cloud Text-to-Speech, 220+ voices, 40+ languages
